@@ -1,0 +1,952 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+:root {
+    --main-color: rgb(182, 179, 179);
+    --bg-fundo: #708090;
+    
+    
+    --tex-color: #000000;
+    --hover-box-shadow: rgba(0, 0, 0, 0.19)0px 10px 20px, rgba(0, 0, 0, 0.23)0px 6px 6px;
+}
+
+/* BARRA DE ROLAGEM */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+
+}
+
+body {
+    background-color: var(--bg-fundo);
+    height: 100vh;
+    color: var(--tex-color);
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+/*Animaçao de fundo*/
+
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+/*CAbeçalho*/
+
+.header {
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 40px 4%;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    z-index: 100;
+    box-shadow: 0 0 40px 10px #ffffff1d;
+}
+
+
+.navbar a {
+    font-size: 1.5rem;
+    color: var(--tex-color);
+    font-weight: 500;
+    margin-left: 4rem;
+    position: relative;
+    /*para colocar o traço animado em baixo*/
+}
+
+.navbar a::after,
+.footer ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    bottom: -3px;
+    left: 0px;
+    position: absolute;
+    background-color: var(--main-color);
+    transition: 0.3s ease;
+}
+
+.navbar a:hover::after,
+.footer ul li a:hover::after {
+    width: 100%;
+}
+
+.navbar a:active,
+.footer ul li a:active {
+    opacity: 0.8;
+}
+
+
+
+/*icone de menu*/
+
+.mobile-menu {
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: var(--tex-color);
+    margin: 8px;
+}
+
+/*pagina parte 1*/
+
+section.topo-do-site {
+    margin-top: 100px;
+    padding: 80px 4%;
+}
+
+section.topo-do-site .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+    /* para distanciar o lado esquerdo da imagem, assim ele se agrupo om as modificações */
+
+}
+
+
+.home-content-esquerda h3 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+
+.home-content-esquerda h1 {
+    font-size: 42px;
+    line-height: 40px;
+    color: var(--tex-color);
+}
+
+/*Animaçao do "Desenvolvedor web"*/
+.home-content-esquerda .tex-animate h3 span {
+    position: relative;
+    font-size: 40px;
+
+     
+    background: var(--main-color);
+    background-clip: text;
+    
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.24);
+    
+    background-image: linear-gradient(43deg, #8441d0 21%, #C850C0 66%);
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    
+    
+
+    
+}
+
+.home-content-esquerda .tex-animate h3 span::before {
+    content: "";
+    color: var(--bg-fundo);
+    animation: palavras 20s infinite;
+
+}
+
+.home-content-esquerda .tex-animate h3 span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid var(--bg-fundo);
+    right: -10px;
+    animation: cursor .8s infinite, digita 20s steps(15) infinite;
+    width: calc(100% + 10px);
+    background-color: var(--bg-fundo);
+}
+
+@keyframes digita {
+
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 10px);
+    }
+}
+
+@keyframes cursor {
+    0% {
+        border-left: 2px solid #8441d0;
+    }
+}
+
+
+@keyframes palavras {
+
+    0%,
+    100% {
+        content: "Desenvolvedor Web.";
+    }
+
+}
+
+.topo-do-site .img-topo-site img {
+    width: 100%;
+}
+
+
+.topo-do-site .img-topo-site img {
+    position: relative;
+    /* para aplicar o Keyframes precisa estar no position relative */
+    animation: flutuar 2s ease-in-out infinite alternate;
+    /* Propriedae / nome dado a animação / tempo da conclução da animação / Velocidade, começar suaver e terminar suave / ficar em loop / alternando para 0 1 2 3... 100 99 98... */
+}
+
+/* Animação para a imagem */
+@keyframes flutuar {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 30px;
+    }
+}
+
+
+.home-content-esquerda p {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+
+/*botao de rede social*/
+.social-midia a,
+.footer .social-footer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 2rem;
+    margin: 3rem 1.5rem 3rem 0;
+    color: var(--main-color);
+    transition: 0.3s ease;
+}
+
+.social-midia a:hover,
+.footer .social-footer a:hover {
+    background: var(--main-color);
+    color: #9a9aa0;
+    transform: scale(1) translateY(-5px);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.social-midia a:active,
+.footer .social-footer a:active {
+    opacity: 0.8;
+}
+
+.btn-cv {
+    display: inline-block;
+    padding: 1.6rem 3.9rem;
+    font-size: 1.2rem;
+    background: var(--main-color);
+    border: 2px solid var(--main-color);
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+    color: #F8F8FD;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.5s ease;
+}
+
+.btn-cv i {
+
+    font-size: 20px;
+}
+
+.btn-cv:hover {
+    background: transparent;
+    color: var(--main-color);
+}
+
+
+
+
+/*sobre mim*/
+
+section.sobre {
+    width: 100vw;
+    box-shadow: 0 0 40px 10px #ffffff1d;
+    padding: 80px 4%;
+    margin-top: 200px;
+}
+
+section.sobre .flex {
+    align-items: center;
+    gap: 60px;
+}
+
+
+.titulo-sobreMim {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.sobre .flex {
+    margin-top: 50px;
+    display: flex;
+    gap: 60px;
+}
+
+
+/*botoes sobre*/
+.sobre-btn button {
+    color: var(--tex-color);
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--main-color);
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 0 40px 10px #ffffff1d;
+    margin: .5rem;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.sobre-btn button.active {
+    background: var(--main-color);
+}
+
+.text-box {
+    margin: .8rem 0;
+}
+
+.content-btn>.content:not(:first-child) {
+    display: none;
+}
+
+
+
+.content-btn .content {
+    margin-top: 20px;
+    padding: 20px;
+    background: #00000015;
+    border: 2px solid #ffffff30;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+
+.text-box .descricao-sobre {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 18px;
+}
+
+
+
+.info-sobre {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 50px;
+    font-size: 15px;
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+
+.info-sobre span {
+    color: var(--tex-color);
+}
+
+.data-sobre {
+    color: var(--main-color);
+    font-size: 16px;
+
+
+}
+
+.titulo-educacao,
+.text-box p.titulo {
+    font-size: 35px;
+    font-weight: 700;
+
+}
+
+.sub-titulo-escola {
+    font-size: 18px;
+    font-weight: 700;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 6%, rgba(148, 187, 233, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    /*Defina a cor do texto para transparente*/
+    color: transparent;
+
+}
+
+.descricao-educacao {
+    margin: 15px 0;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+
+.habilidade-educacao {
+    display: inline-flex;
+    gap: 15px;
+    font-size: 13px;
+    align-items: center;
+    color: var(--tex-color);
+    font-weight: 500;
+
+}
+
+.habilidade-educacao p {
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--main-color);
+}
+
+hr {
+    margin: 30px 0;
+    height: 2px;
+    width: auto;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 6%, rgba(148, 187, 233, 1) 100%);
+    border: none;
+    display: block;
+
+}
+
+
+.text-box p.sub-titulo {
+    font-size: 20px;
+    font-weight: 700;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 6%, rgba(148, 187, 233, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    /*Defina a cor do texto para transparente*/
+    color: transparent;
+
+}
+
+.text-box p.descricao {
+    margin: 13px 0;
+    font-size: 18px;
+    font-weight: 400;
+
+
+}
+
+.text-box p.descricao span {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+/*projetos*/
+
+section.Projetos {
+    padding: 0px 4% 80px;
+    margin-top: 100px;
+}
+
+.projetos-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+
+}
+
+.projetos-container .projetos-box {
+    position: relative;
+    border-radius: 2rem;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+
+
+
+}
+
+.titulo-skills {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.projetos-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5 ease;
+    filter: grayscale(0.5) blur(2px);
+
+
+}
+
+.projetos-box:hover img {
+    transform: scale(1.1);
+}
+
+.projetos-box .projetos-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+
+}
+
+.projetos-box .projetos-info:hover {
+    background: rgba(0, 0, 0, 0.75);
+    transform: scale(1.1);
+}
+
+.projetos-info h4 {
+    font-size: 3rem;
+    color: var(--tex-color);
+    font-weight: 800;
+}
+
+
+
+.links-projeto {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+
+}
+
+.projetos-info a {
+    color: var(--tex-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--main-color);
+    border-radius: 50%;
+
+
+}
+
+.projetos-info a i {
+    font-size: 3rem;
+    color: var(--tex-color);
+}
+
+.botao-veja {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vejaMais-button {
+
+    padding: 15px 45px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--main-color);
+    color: var(--tex-color);
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#vejaMais-button:hover {
+    background: var(--main-color);
+    color: #F8F8FD;
+    transform: scale(1) translateY(-5px);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+#vejaMais-button:active {
+    opacity: 0.8;
+}
+
+
+/*Footer*/
+.footer {
+    background: #3e3e3f25;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+
+    /*padding: 10rem 9% 10rem;*/
+    padding: 20px;
+}
+
+.footer .social-footer {
+    text-align: center;
+}
+
+.footer ul {
+    margin-top: 0;
+    padding: 0;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.footer ul li a {
+    font-size: 1.8rem;
+    color: var(--tex-color);
+    font-weight: 500;
+    margin-left: 4rem;
+    position: relative;
+    /*para colocar o traço animado em baixo*/
+}
+
+.footer ul li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.footer .copyright {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--tex-color);
+}
+
+
+/*Efeito do Scroll*/
+.efeito-txt-top , .efeito-img-topo,
+.efeito-projetos1, .efeito-projetos2, .efeito-projetos3,
+.efeito-img-sobre, .efeito-txt-sobre, .efeito-btn, .efeito-titulo-sobre{
+    visibility: hidden; /*esconder o conteudo antes do efeito*/
+}
+
+
+.animated-element.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media screen and (max-width: 1020px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    .flex {
+        flex-direction: column;
+        /* colocar tudo um de baixo  do outro */
+    }
+
+    .topo-do-site .flex {
+        flex-direction: column-reverse;
+        /* para reverter so o texto e a imagem em movimento */
+    }
+
+    section.topo-do-site .flex {
+        gap: 40px;
+    }
+
+    section.topo-do-site {
+        padding: 20px 8%;
+    }
+
+    .topo-do-site .img-topo-site img {
+        width: 80%;
+    }
+
+
+    section.sobre {
+        width: auto;
+    }
+
+    .sobre .flex {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .img-sobre img {
+        width: 80%;
+    }
+
+
+    .txt-topo-site {
+        margin-top: 20px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .habilidade-educacao {
+        flex-direction: column;
+
+    }
+
+    .projetos-container {
+        padding-bottom: 7rem;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 4rem 5rem;
+    }
+
+    .text-box .descricao-sobre,
+    .text-box .descricao-educacao,
+    .text-box .descricao {
+        padding: 3%;
+    }
+
+    /* RODAPÉ */
+    footer .flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    /*icone de menu*/
+
+
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 9rem 3% 2rem;
+    }
+
+}
+
+@media screen and (max-width: 999px) {
+
+
+    /**/
+    .home-content-esquerda {
+        flex-direction: column;
+
+    }
+
+    .home-content-esquerda h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content-esquerda h1 {
+        font-size: 5rem;
+    }
+
+        /*Cancelar  Animaçao do "Desenvolvedor web"*/
+    .home-content-esquerda .tex-animate h3 span {
+        position: relative;
+        font-size: 2.7rem;
+        background: var(--main-color);
+        -webkit-background-clip: text;
+        background-clip: text;
+        /*Defina a cor do texto para transparente*/
+        color: transparent;
+
+        
+    }
+    hr{
+        background: rgb(88, 88, 88);
+    }
+
+    .sub-titulo-escola{
+        background:rgb(90, 90, 90);
+        -webkit-background-clip: text;
+        background-clip: text;
+        /*Defina a cor do texto para transparente*/
+        color: transparent;
+    }
+
+    .home-content-esquerda .tex-animate h3 span::before {
+        content: " Desenvolvedor Web.";
+        
+
+    }
+
+    .home-content-esquerda .tex-animate h3 span::after {
+        position: relative;
+        animation: none;
+    }   
+
+    .social-midia a:active,
+    .footer .social-footer a:active {
+        transition: 0.3s ease;
+        transform: scale(1.5); /* Altere o valor conforme necessário */
+    }
+
+
+
+}
+    
+
+
+
+
+@media screen and (max-width: 610px) {
+    
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home-content-esquerda h3 {
+        font-size: 2.6rem;
+    }
+
+
+
+    .home-content-direita img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .home-content-esquerda p {
+        margin-top: 20px;
+    }
+
+    .home-content-esquerda h1 {
+        font-size: 35px;
+    }
+
+    .home-content-esquerda .tex-animate h3 span {
+        font-size: 2.7rem;
+    }
+
+    .content-btn .content {
+        padding: 8px;
+    }
+
+    .info-sobre {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .text-box .descricao-sobre,
+    .text-box .descricao-educacao,
+    .text-box .descricao {
+        padding: 3%;
+    }
+
+
+    .habilidade-educacao {
+        flex-direction: column;
+
+    }
+
+    footer .flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer ul {
+        display: none;
+    }
+
+
+    .footer .copyright {
+        margin-top: 10px;
+
+    }
+}
+
+@media screen and (min-width: 404px) {
+       
+
+    .home-content-esquerda h3 {
+        font-size: 2rem;
+    }
+
+    .home-content-esquerda p {
+
+        padding: 10px;
+    }
+    
+    
+}
+
+
+
